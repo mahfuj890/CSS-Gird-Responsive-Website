@@ -1,32 +1,44 @@
- /*
-  Theme Name: Plumber Website
-  Author: example@gmail.com
-  Support:  example@gmail.com
-  Description: Creative  HTML5 template.
-  Version: 1.0
-*/
 
-/* CSS Index Tabel
------------------------------------
-## Global Variable and style
-01. Demo 01 Section
-  1.1.  Section
-*/
+// =========== ## Global Variable =====
 
+/* ------- Colors and Fonts ----- */
+$body-color:#E5E5E5;
+$white-color: #FFFFFF;
+$white-color-fa:#FAFAFA;
+$gray-color:#D5D9DA;
+$sweeet-color-74:#7400b8;
+$Akashi-color-0A:#0AD3FF;
+$green-color-26:#264653;
+$gradient-1 : linear-gradient(to right top, #264653, #004b77, #004a9c, #003eb5, #7400b8);
+$gradient-2 : linear-gradient(90deg, rgba(38,70,83,1) 0%, rgba(116,0,184,1) 35%, rgba(0,212,255,1) 100%);
 
- @import "assets/css/globalStyle";
-
- /* ------------ Sticky Navbar   ------------*/
- .navbar-fixed {
-  position: fixed;
-  top: 0px;
-  width: 100%;
-  z-index: 100000;
-  background-color: $scroll-menu-bg-color;
-  transition: all 0.5s ease-in-out;
+$shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+$poppin-font: 'Poppins', sans-serif;
 
+/* -------html tag ----- */
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smoot
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:$poppin-font;
+  font-size: 1.6rem;
+  position: relative;
+  height: 100%;
+  overflow-x: hidden;
 
 
 }
@@ -34,9 +46,513 @@
 
 
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+button,
+li,
+span,
+input,
+select,
+textarea {
+  font-family:$poppin-font;
+}
+
+p {
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: black;
+}
+
+a {
+  text-decoration: none;
 
 
-/* ============  Section =========== */
-/* ============  Section =========== */
-/* ============  Section =========== */
-/* ============  Section =========== */
+  &:hover {
+    text-decoration: none;
+
+
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+
+:focus {
+  outline: none !important;
+}
+
+input:focus,
+select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 1px solid black !important;
+}
+
+textarea:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.btn:focus {
+  outline: none !important;
+  box-shadow: none !important;
+
+}
+
+button:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button {
+  border: none !important;
+}
+
+button:hover {
+  border: none !important;
+}
+
+
+
+::selection {
+  background: blue;
+  color: white;
+  text-shadow: none;
+}
+
+*::-moz-selection {
+  background: blue;
+  color: white;
+  text-shadow: none;
+}
+
+
+*::placeholder {
+  color: black;
+  font-size: 1.7rem;
+  opacity: 1;
+}
+
+*::-moz-placeholder {
+  color: black;
+  font-size: 1.7rem;
+  opacity: 1;
+}
+
+// Hide input number type right icon
+
+/*  Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+
+
+// ========== Responsive BreakPoints ===========
+
+@mixin mediaMaxWidth($rwdWidth) {
+  @media (max-width: $rwdWidth) {
+    @content;
+  }
+}
+
+@mixin mediaMinWidth($rwdWidth) {
+  @media (min-width: $rwdWidth) {
+    @content;
+  }
+}
+
+@mixin mediaBreakWidth($rwdMin-Width, $rwdMax-Width) {
+  @media (min-width: $rwdMin-Width) and (max-width: $rwdMax-Width) {
+    @content;
+  }
+}
+
+// ========== Mixin ===========
+
+@mixin Background-image($bg-posi: center center,
+  $bg-rept: no-repeat,
+  $bg-attach: fixed,
+  $bg-size: cover) {
+  background-position: $bg-posi;
+  background-repeat: $bg-rept;
+  background-attachment: $bg-attach;
+  background-size: $bg-size;
+}
+
+@mixin Button-hover-transition() {
+  transition: all 0.5s ease-in-out !important;
+  -webkit-transition: all 0.5s ease-in-out !important;
+  -moz-transition: all 0.5s ease-in-out !important;
+  -ms-transition: all 0.5s ease-in-out !important;
+  -o-transition: all 0.5s ease-in-out !important;
+}
+
+
+
+
+
+
+
+
+// ========== Extends ===========
+
+
+
+/* @import "assets/css/globalStyle"; */
+
+// ============ Layout ===============
+.my-container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @include mediaMinWidth(1400px){
+    max-width: 1320px;
+
+  }
+  @include mediaMinWidth(1200px){
+    max-width: 1140px;
+
+  }
+  @include mediaBreakWidth(992px, 1199px){
+    max-width: 960px;
+  }
+  @include mediaBreakWidth(768px, 991px){
+    max-width: 720px;
+  }
+  @include mediaBreakWidth(575px, 767px){
+    max-width: 540px;
+  }
+  @include mediaMaxWidth(574px){
+    max-width: 100%;
+  }
+
+}
+
+
+.my-row::after {
+  content: "";
+  clear: both;
+  // display: table;
+}
+
+/* ============ Navbar Section =========== */
+.navbar_wrapper{
+  background: $gradient-2;
+  padding: 1rem 0;
+  nav{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    align-items: center;
+    @include mediaMaxWidth(575px){
+      grid-template-columns: 1fr;
+    }
+  }
+  .logo{
+    @include mediaMaxWidth(575px){
+      text-align: center;
+      margin-bottom: 1rem;
+      }
+    a{
+      font-size: 2rem;
+      font-weight: 500;
+      color: white;
+
+    }
+  }
+  .menu_items{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: end;
+    grid-column-gap: 2rem;
+    @include mediaMaxWidth(575px){
+      grid-column-gap: 1rem;
+      grid-template-columns: 1fr 1fr;
+      grid-row-gap: 0.5rem;
+      }
+
+    li{
+      background-color: $green-color-26;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      &:hover{
+        background-color: rgba($sweeet-color-74, 0.5);
+      }
+      a{
+        color: $white-color;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+/* ------------ Sticky Navbar   ------------*/
+.navbar-fixed {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  z-index: 100000;
+  background: black;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  padding: 1.5rem 0;
+}
+
+/* ============ Hero Section =========== */
+.hero_wrapper{
+
+  @include mediaMinWidth(768px){
+    margin-top: 1rem;
+  }
+  .hero_my_row{
+    display: grid;
+    grid-template-columns: 8fr 2fr;
+    grid-gap: 1rem;
+    @include mediaMaxWidth(767px){
+      grid-template-columns: 1fr;
+    }
+  }
+  .hero_content_area{
+    background-image: url("assets/images/showcase.jpg");
+    @include Background-image( );
+    padding: 15rem 0;
+    text-align: center;
+    @include mediaMaxWidth(991px){
+      padding: 10rem 0;
+    }
+    @include mediaMaxWidth(575px){
+      padding: 7rem 0;
+    }
+
+    .hero_content{
+      padding: 0 6rem;
+    }
+    h1{
+      color: $white-color;
+      font-size: 5rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      @include mediaMaxWidth(991px){
+        font-size: 3rem;
+      }
+
+    }
+    p{
+      color: $gray-color;
+      margin-bottom: 3rem;
+    }
+    a{
+      background: $gradient-1;
+      padding: 1rem 2rem;
+      font-size: 1.7rem;
+      color: $white-color;
+    }
+
+  }
+  .hero_service_area{
+    display: grid;
+    grid-gap: 1rem;
+    @include mediaMaxWidth(771px){
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .service_items{
+    background: $gray-color;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: $shadow;
+    h3{
+      font-weight: 400;
+      font-size: 1.4rem;
+    }
+    p{
+      font-size: calc(1.5rem + 1vw);
+      font-weight: 500;
+      color: $green-color-26;
+    }
+    a{
+      background-color: $green-color-26;
+      color: $white-color;
+      padding: 0.5rem;
+      &:hover{
+        background-color: rgba($green-color-26, 0.8);
+      }
+    }
+
+  }
+}
+
+/* ============ Service Section =========== */
+.service_wrapper{
+  margin-top: 5rem;
+  .service_row{
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+  }
+  .service_area{
+    text-align: center;
+    padding: 1rem;
+    @include Button-hover-transition();
+    &:hover{
+      background-color: $gray-color;
+      box-shadow: $shadow;
+      i{
+        color: $sweeet-color-74;
+      }
+    }
+
+    h3{
+      margin: 3rem 0 2rem 0;
+    }
+  }
+}
+
+/* ============ Info Section =========== */
+.info_wrapper{
+  margin-top: 5rem;
+  .info_row{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 3rem;
+    @include mediaMaxWidth(767px){
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
+    }
+  }
+  .info_img{
+    img{
+      height: 30rem;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+
+}
+
+/* ============ Portfolio Section =========== */
+.portfolio_wrapper{
+  h2{
+    margin-bottom: 2rem;
+  }
+  .portfolio_row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+    grid-gap: 1rem;
+
+    img{
+      width: 100%;
+      object-fit: cover;
+      box-shadow: $shadow;
+    }
+
+  }
+
+
+}
+
+/* ============ Card Section =========== */
+.card_wrapper{
+  margin-top: 5rem;
+  .card_items_area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem,1fr));
+    @include mediaBreakWidth(575px, 991px){
+    grid-gap: 1rem;
+    }
+
+    @include mediaMaxWidth(767px){
+      grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
+      grid-gap: 1rem;
+    }
+  }
+  .card{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+
+    @include mediaMaxWidth(991px){
+      grid-template-columns: 1fr;
+      margin-top: 1rem;
+    }
+  }
+  .card_img{
+    img{
+      width: 100%;
+      height: 20rem;
+      object-fit: cover;
+    }
+  }
+}
+
+/* ============ Grid Section =========== */
+.grid_wrapper{
+  margin-top: 5rem;
+  .grid_items_area{
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-gap: 1rem;
+  }
+
+  .box{
+    &:nth-child(2n+2){
+      background-color: #004b77;
+    }
+    &:nth-child(2n+1){
+      background-color: #19c3f6;
+    }
+  }
+  .box1{
+    grid-column: 1/7;
+  }
+  .box2{
+    grid-column: 7/13;
+  }
+  .box3{
+    grid-column: 1/4;
+  }
+  .box4{
+    grid-column: 4/9;
+  }
+  .box5{
+    grid-column: 9/13;
+  }
+}
+
+/* ============ Footer Section =========== */
+.footer_wrapper{
+  background: $gradient-2;
+  margin-top: 5rem;
+    padding: 1.5rem 0;
+    text-align: center;
+}
